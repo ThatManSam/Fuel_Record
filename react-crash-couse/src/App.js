@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Todos from './components/Todos';
+import AddTodo from './components/layout/AddTodo';
+import Header from './components/layout/Header';
+import axios from 'axios';
+import About from './components/pages/About';
 
 class App extends Component {
     state = {
-        todos: [
-            {
-                id: 1,
-                title: 'Take out the trash',
-                completed: false
-            },
-            {
-                id: 2,
-                title: 'Mow the Lawn',
-                completed: false
-            },
-            {
-                id: 3,
-                title: 'Submit assignment',
-                completed: false
-            },
-        ]
+        todos: []
+    }
+
+    componentDidMount() {
+        axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10').then(
+            res => this.setState( {
+            todos: res.data
+        }))
     }
 
     // Toggle Complete
@@ -35,11 +31,35 @@ class App extends Component {
         });
     }
 
+    addTodo = (title) => {
+        axios.post('https://jsonplaceholder.typicode.com/todos', {
+            title,
+            completed: false
+        }).then(res => this.setState({ todos: [...this.state.todos, res.data] }));
+    }
+
+    delTodo = (id) => {
+        axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+        .then(res => this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] }))
+        
+    }
+
     render() {
         return (
-            <div className="App">
-                <Todos todos={this.state.todos} markComplete={this.markComplete} />
-            </div>
+            <Router>
+                <div className="App">
+                    <div className="container">
+                        <Header />
+                        <Route exact path="/" render={props => (
+                            <React.Fragment>
+                                <AddTodo addTodo={this.addTodo} />
+                                <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
+                            </React.Fragment>
+                        )} />
+                        <Route path="/about" component={About} />
+                    </div>
+                </div>
+            </Router>
         );
     }
 }
