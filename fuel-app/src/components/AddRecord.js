@@ -3,7 +3,7 @@ import DatePicker from 'react-date-picker'
 
 const dateObj = new Date();
 
-    export default class AddRecord extends Component {
+export default class AddRecord extends Component {
     state = {
         amount: 0,
         distance: 0,
@@ -16,12 +16,16 @@ const dateObj = new Date();
     }
 
     handleDateChange = (e) => {
-        this.setState({ date: e})
+        this.setState({ date: e })
+    }
+
+    handleSubmit = () => {
+        console.log("Form was submitted")
     }
 
     render() {
         return (
-            <div style={{ display: 'flex', margin: '0 20px', background: '#aaa' }}>
+            <form onSubmit={this.handleSubmit} style={{ display: 'flex', margin: '0 20px', background: '#aaa' }}>
                 <div style={inputBlock}>
                     <label for="amount-input" style={inputLabel}>Amount</label>
                     <input
@@ -69,7 +73,14 @@ const dateObj = new Date();
                         style={inputDisplay}
                     />
                 </div>
-            </div>
+                <input
+                    id="submit-button"
+                    type="submit"
+                    name="submit"
+                    value="Submit"
+                    style={submitButton}
+                />
+            </form>
         )
     }
 
@@ -88,4 +99,12 @@ const inputBlock = {
 
 const inputLabel = {
     padding: '5px',
+}
+
+const submitButton = {
+    background: '#555',
+    border: 'none',
+    padding: '5px',
+    color: 'white',
+    flex: '1'
 }
