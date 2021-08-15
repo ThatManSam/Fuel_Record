@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import DatePicker from 'react-date-picker'
+import PropTypes from 'prop-types'
 
 const dateObj = new Date();
 
@@ -19,8 +20,17 @@ export default class AddRecord extends Component {
         this.setState({ date: e })
     }
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
         console.log("Form was submitted")
+        e.preventDefault()
+        let newState = {
+            amount: e.amount,
+            distance: e.distance,
+            cost: e.cost,
+            date: e.date
+        }
+        this.props.addRecord(newState)
+        this.state = newState
     }
 
     render() {
@@ -107,4 +117,8 @@ const submitButton = {
     padding: '5px',
     color: 'white',
     flex: '1'
+}
+
+AddRecord.propTypes = {
+    addRecord: PropTypes.func.isRequired
 }

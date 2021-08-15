@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AddRecord />
+        <AddRecord addRecord={function() {}}/>
         {this.state.data}
       </div>
     )
