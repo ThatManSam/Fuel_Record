@@ -2,10 +2,11 @@ import { Component } from 'react'
 import './App.css'
 import AddRecord from './components/AddRecord'
 import Axios from 'axios'
+import Records from './components/Records'
 
 class App extends Component {
   state = {
-    data: null
+    records: []
   }
 
   componentDidMount() {
@@ -24,11 +25,16 @@ class App extends Component {
     return body
   }
 
+  addRecord = (rec) => {
+    console.log("tried to add: " + rec.id + rec.distance + rec.cost)
+    this.setState({ records: [...this.state.records, rec] })
+  }
+
   render() {
     return (
       <div className="App">
-        <AddRecord addRecord={function() {}}/>
-        {this.state.data}
+        <AddRecord addRecord={this.addRecord} />
+        <Records records={this.state.records} />
       </div>
     )
   }

@@ -6,6 +6,7 @@ const dateObj = new Date();
 
 export default class AddRecord extends Component {
     state = {
+        id: 0,
         amount: 0,
         distance: 0,
         cost: 0,
@@ -24,20 +25,21 @@ export default class AddRecord extends Component {
         console.log("Form was submitted")
         e.preventDefault()
         let newState = {
-            amount: e.amount,
-            distance: e.distance,
-            cost: e.cost,
-            date: e.date
+            id: this.state.id,
+            amount: this.state.amount,
+            distance: this.state.distance,
+            cost: this.state.cost,
+            date: this.state.date
         }
         this.props.addRecord(newState)
-        this.state = newState
+        this.setState(newState)
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit} style={{ display: 'flex', margin: '0 20px', background: '#aaa' }}>
                 <div style={inputBlock}>
-                    <label for="amount-input" style={inputLabel}>Amount</label>
+                    <label htmlFor="amount-input" style={inputLabel}>Amount</label>
                     <input
                         id="amount-input"
                         type="number"
@@ -49,7 +51,7 @@ export default class AddRecord extends Component {
                     />
                 </div>
                 <div style={inputBlock}>
-                    <label for="distance-input" style={inputLabel}>Distance</label>
+                    <label htmlFor="distance-input" style={inputLabel}>Distance</label>
                     <input
                         id="distance-input"
                         type="number"
@@ -61,7 +63,7 @@ export default class AddRecord extends Component {
                     />
                 </div>
                 <div style={inputBlock}>
-                    <label for="cost-input" style={inputLabel}>Cost</label>
+                    <label htmlFor="cost-input" style={inputLabel}>Cost</label>
                     <input
                         id="cost-input"
                         type="number"
@@ -73,7 +75,7 @@ export default class AddRecord extends Component {
                     />
                 </div>
                 <div style={inputBlock}>
-                    <label for="date-input" style={inputLabel}>Date</label>
+                    <label htmlFor="date-input" style={inputLabel}>Date</label>
                     <DatePicker
                         id="date-input"
                         name="date"
