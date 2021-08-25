@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import RecordItem from './RecordItem';
 
 export class Records extends Component {
+    constructor(props) {
+        super(props)
+        console.log(props.records)
+    }
+
     render() {
         return (
             <table style={tableStyle}>
@@ -16,6 +21,7 @@ export class Records extends Component {
                     {this.props.records.map((rec) => (
                         <RecordItem
                             record={rec}
+                            remove={this.props.remove}
                         />
                     ))}
                 </tbody>

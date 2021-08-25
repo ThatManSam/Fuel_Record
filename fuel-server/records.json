@@ -1,25 +1,74 @@
 {
-    "records": [
-        {
-            "id": 0,
-            "amount": "35.5",
-            "distance": "450",
-            "cost": "70",
-            "date": "Wed Aug 25 2021 15:24:24 GMT+1200 (New Zealand Standard Time)"
-        },
-        {
-            "id": 1,
-            "amount": "34.5",
-            "distance": "450",
-            "cost": "70",
-            "date": "Wed Aug 25 2021 15:24:24 GMT+1200 (New Zealand Standard Time)"
-        },
-        {
-            "id": 2,
-            "amount": "33.5",
-            "distance": "450",
-            "cost": "70",
-            "date": "Wed Aug 25 2021 15:24:24 GMT+1200 (New Zealand Standard Time)"
-        },
-    ]
+  "records": [
+    {
+      "id": "2021-08-25T12:00:00.000Z",
+      "amount": 0,
+      "distance": 0,
+      "cost": 0,
+      "date": "2021-08-25T12:00:00.000Z"
+    },
+    {
+      "id": "2021-08-22T12:00:00.000Z",
+      "amount": 0,
+      "distance": 0,
+      "cost": 0,
+      "date": "2021-08-22T12:00:00.000Z"
+    },
+    {
+      "id": "2021-08-22T12:00:00.000Z",
+      "amount": 0,
+      "distance": 0,
+      "cost": 0,
+      "date": "2021-08-22T12:00:00.000Z"
+    },
+    {
+      "id": "2021-08-19T12:00:00.000Z",
+      "amount": 0,
+      "distance": 0,
+      "cost": 0,
+      "date": "2021-08-19T12:00:00.000Z"
+    },
+    {
+      "id": "2021-08-18T12:00:00.000Z",
+      "amount": 0,
+      "distance": 0,
+      "cost": 0,
+      "date": "2021-08-18T12:00:00.000Z"
+    },
+    {
+      "id": "2021-08-17T12:00:00.000Z",
+      "amount": 0,
+      "distance": 0,
+      "cost": 0,
+      "date": "2021-08-17T12:00:00.000Z"
+    },
+    {
+      "id": "2021-08-16T12:00:00.000Z",
+      "amount": 0,
+      "distance": 0,
+      "cost": 0,
+      "date": "2021-08-16T12:00:00.000Z"
+    },
+    {
+      "id": "2021-08-15T12:00:00.000Z",
+      "amount": 0,
+      "distance": 0,
+      "cost": 0,
+      "date": "2021-08-15T12:00:00.000Z"
+    },
+    {
+      "id": "2021-08-06T12:00:00.000Z",
+      "amount": 0,
+      "distance": 0,
+      "cost": 0,
+      "date": "2021-08-06T12:00:00.000Z"
+    },
+    {
+      "id": "2021-08-04T12:00:00.000Z",
+      "amount": 0,
+      "distance": 0,
+      "cost": 0,
+      "date": "2021-08-04T12:00:00.000Z"
+    }
+  ]
 }

@@ -25,7 +25,7 @@ export default class AddRecord extends Component {
         console.log("Form was submitted")
         e.preventDefault()
         let newState = {
-            id: this.state.id,
+            id: this.state.date,
             amount: this.state.amount,
             distance: this.state.distance,
             cost: this.state.cost,
