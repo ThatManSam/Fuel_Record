@@ -1,0 +1,25 @@
+{
+    "records": [
+        {
+            "id": 0,
+            "amount": "35.5",
+            "distance": "450",
+            "cost": "70",
+            "date": "Wed Aug 25 2021 15:24:24 GMT+1200 (New Zealand Standard Time)"
+        },
+        {
+            "id": 1,
+            "amount": "34.5",
+            "distance": "450",
+            "cost": "70",
+            "date": "Wed Aug 25 2021 15:24:24 GMT+1200 (New Zealand Standard Time)"
+        },
+        {
+            "id": 2,
+            "amount": "33.5",
+            "distance": "450",
+            "cost": "70",
+            "date": "Wed Aug 25 2021 15:24:24 GMT+1200 (New Zealand Standard Time)"
+        },
+    ]
+}
