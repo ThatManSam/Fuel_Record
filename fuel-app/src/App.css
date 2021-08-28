@@ -11,24 +11,6 @@
   padding: 20px;
 }
 
-@media screen and (max-width: 600px) {
-  .input-form {
-    display:list-item
-
-  }
-  .input-block {
-    width: auto
-  }
-
-  .submit-button {
-    width: auto
-  }
-
-  #cost-input, #distance-input, #amount-input {
-    width: 3em;
-  }
-}
-
 #cost-input, #distance-input, #amount-input {
   width: 3em;
 }
@@ -85,14 +67,21 @@
   overflow: hidden;
 }
 .header .btn {
-  flex: 1;
   display: inline;
   border: none;
   border-radius: 5px;
   padding: 10px;
-  margin: 0px;
+  margin: 5px;
   background-color: black;
   color: white;
+}
+
+.header .btn #add-button {
+  flex: 2;
+}
+
+.header .btn #edit-button {
+  flex: 1;
 }
 
 .record-container {
@@ -106,7 +95,7 @@
   width: auto;
   padding: 10px;
   border-left: 5px solid #000;
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px;
   background-color: #eee;
 }
 

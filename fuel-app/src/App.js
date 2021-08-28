@@ -48,6 +48,10 @@ class App extends Component {
     await this.postRecord(rec, true)
     // Ask for all the information back to update the list
     this.updateRecords()
+    this.setState({ 
+      displayAddLog: !this.state.displayAddLog,
+      editMode: false
+    })
   }
 
   // Remove a record from the list via the server
@@ -74,14 +78,14 @@ class App extends Component {
       <Router>
         <Route exact path="/" render={props => (
           <div className="App">
-            <Header 
-              onAddLog={() => this.setState({ displayAddLog: !this.state.displayAddLog })} 
+            <Header
+              onAddLog={() => this.setState({ displayAddLog: !this.state.displayAddLog })}
               showAddLog={this.state.displayAddLog}
               toggleEdit={() => this.setState({ editMode: !this.state.editMode })}
               edit={this.state.editMode}
             />
             {this.state.displayAddLog && <AddRecord addRecord={this.addRecord} />}
-            <Records records={this.state.records} remove={this.removeRecord} edit={this.state.editMode}/>
+            <Records records={this.state.records} remove={this.removeRecord} edit={this.state.editMode} />
           </div>)} />
       </Router>
     )

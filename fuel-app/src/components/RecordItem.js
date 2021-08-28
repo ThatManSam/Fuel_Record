@@ -7,7 +7,7 @@ export class RecordItem extends Component {
         const edit = this.props.edit
         return (
             <div className="record-container">
-                <div className="record">
+                <div className="record" style={{borderRadius: this.props.edit ? "5px 0 0 5px" : "5px"}}>
                     <h2>{amount + 'L for ' + distance + 'km'}</h2>
                     <h3>{new Date(date).toLocaleDateString() + ' $' + cost}</h3>
                 </div>
