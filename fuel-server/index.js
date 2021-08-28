@@ -5,15 +5,13 @@ const port = 5000
 const fs = require('fs')
 
 const recordDirectory = __dirname + '/records.json'
+const fuelApp = '/home/joel/Documents/Fuel_Record/fuel-app/build'
 
 app.use(bodyParser.json())
+app.use(express.static(fuelApp))
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
-app.get('/express_backend', (req, res) => {
-    res.send({ express: 'EXPRESS BACKEND IS CONNECTED TO REACT' })
+    res.sendFile(fuelApp + '/index.html')
 })
 
 app.get('/records', (req, res) => {
