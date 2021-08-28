@@ -9,29 +9,17 @@ export class Records extends Component {
 
     render() {
         return (
-            <table style={tableStyle}>
-                <tbody>
-                    <tr>
-                        <th>Date</th>
-                        <th>Distance</th>
-                        <th>Cost</th>
-                        <th>Amount</th>
-                    </tr>
-
-                    {this.props.records.map((rec) => (
-                        <RecordItem
-                            record={rec}
-                            remove={this.props.remove}
-                        />
-                    ))}
-                </tbody>
-            </table>
+            <div>
+                {this.props.records.map((rec) => (
+                    <RecordItem
+                        record={rec}
+                        remove={this.props.remove}
+                        edit={this.props.edit}
+                    />
+                ))}
+            </div>
         )
     }
-}
-
-const tableStyle = {
-    width: '100%'
 }
 
 export default Records

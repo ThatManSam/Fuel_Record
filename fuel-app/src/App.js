@@ -1,13 +1,18 @@
 import { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css'
+import Header from './components/Header'
 import AddRecord from './components/AddRecord'
 import Records from './components/Records'
 import axios from 'axios'
 
 class App extends Component {
   state = {
-    records: []
+    records: [],
+    displayAddLog: false,
+    editMode: false
   }
+
 
   componentDidMount() {
     // Get all the records from the server and add to the state
@@ -66,10 +71,19 @@ class App extends Component {
   // REACT Renders out the list of records
   render() {
     return (
-      <div className="App">
-        <AddRecord addRecord={this.addRecord} />
-        <Records records={this.state.records} remove={this.removeRecord} />
-      </div>
+      <Router>
+        <Route exact path="/" render={props => (
+          <div className="App">
+            <Header 
+              onAddLog={() => this.setState({ displayAddLog: !this.state.displayAddLog })} 
+              showAddLog={this.state.displayAddLog}
+              toggleEdit={() => this.setState({ editMode: !this.state.editMode })}
+              edit={this.state.editMode}
+            />
+            {this.state.displayAddLog && <AddRecord addRecord={this.addRecord} />}
+            <Records records={this.state.records} remove={this.removeRecord} edit={this.state.editMode}/>
+          </div>)} />
+      </Router>
     )
   }
 }

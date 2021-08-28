@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
+import { FaTimes } from 'react-icons/fa'
 
 export class RecordItem extends Component {
     render() {
         const { amount, distance, cost, date } = this.props.record
+        const edit = this.props.edit
         return (
-            <tr>
-                <td id="display-date">{new Date(date).toLocaleDateString()}</td>
-                <td id="display-distance">{distance}</td>
-                <td id="display-cost">{cost}</td>
-                <td id="display-amount">{amount}</td>
-                <td id="remove-button">
-                    <input
-                        id="remove-button"
-                        type="button"
-                        name="remove"
-                        value="X"
-                        onClick={() => this.props.remove(this.props.record)} />
-                </td>
-            </tr>
+            <div className="record-container">
+                <div className="record">
+                    <h2>{amount + 'L for ' + distance + 'km'}</h2>
+                    <h3>{new Date(date).toLocaleDateString() + ' $' + cost}</h3>
+                </div>
+                {edit &&
+                    <div className="record-delete-icon" onClick={() => this.props.remove(this.props.record)}>
+                        <FaTimes />
+                    </div>
+                }
+            </div>
+
         )
     }
 }

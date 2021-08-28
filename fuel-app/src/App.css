@@ -1,38 +1,137 @@
 .App {
+  margin: 5px auto;
   text-align: center;
+  min-width: 300px;
+  max-width: 800px;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: black;
+  outline-offset: -1px;
+  border-radius: 10px;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@media screen and (max-width: 600px) {
+  .input-form {
+    display:list-item
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  }
+  .input-block {
+    width: auto
+  }
+
+  .submit-button {
+    width: auto
+  }
+
+  #cost-input, #distance-input, #amount-input {
+    width: 3em;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#cost-input, #distance-input, #amount-input {
+  width: 3em;
+}
+
+.input-form {
+  text-align: left;
+  display: inline-block;
+  background-color: #eee;
+  width: fit-content;
+  border-radius: 10px;
+  border: 1px solid #000;
+  margin: auto;
+}
+
+.input-block {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex: 2;
+  margin: 20px;
+  width: auto;
+}
+
+.input-block>.num-input {
+  flex: 1;
+}
+
+.input-block label {
+  flex: 1;
+  padding: 5px;
+  width: 50%;
+}
+
+#submit-button {
+  flex: 1;
+  background-color: #242424;
+  color: white;
+  font-size: medium;
+  border: none;
+  border-radius: 0 0 5px 5px;
+  width: 100%;
+  padding: 20px
+}
+
+.header {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  flex: 2;
+  margin: auto 10px;
+  display: inline;
+  font-size:x-large;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.header .btn {
+  flex: 1;
+  display: inline;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0px;
+  background-color: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.record-container {
+  display: flex;
+  margin: 10px auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.record {
+  flex: 10;
+  text-align: left;
+  width: auto;
+  padding: 10px;
+  border-left: 5px solid #000;
+  border-radius: 5px 0 0 5px;
+  background-color: #eee;
+}
+
+.record-delete-icon {
+  flex: 1;
+  display: flex;
+  height: inherit;
+  background-color: darkred;
+  padding: 5px;
+  text-align: center;
+  border-radius: 0 5px 5px 0;
+  color: white;
+}
+
+.record-delete-icon svg {
+  margin: auto;
+}
+
+.record h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.record h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
 }

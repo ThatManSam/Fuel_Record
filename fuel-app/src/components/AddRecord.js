@@ -37,88 +37,64 @@ export default class AddRecord extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} style={{ display: 'flex', margin: '0 20px', background: '#aaa' }}>
-                <div style={inputBlock}>
-                    <label htmlFor="amount-input" style={inputLabel}>Amount</label>
+            <form onSubmit={this.handleSubmit} className="input-form">
+                <div className="input-block">
+                    <label htmlFor="amount-input">Amount</label>
                     <input
+                        className="num-input"
                         id="amount-input"
                         type="number"
                         name="amount"
                         placeholder="00.00"
                         value={this.state.amount}
                         onChange={this.handleChange}
-                        style={inputDisplay}
                     />
                 </div>
-                <div style={inputBlock}>
-                    <label htmlFor="distance-input" style={inputLabel}>Distance</label>
+                <div className="input-block">
+                    <label htmlFor="distance-input">Distance</label>
                     <input
+                        className="num-input"
                         id="distance-input"
                         type="number"
                         name="distance"
                         placeholder="000.0"
                         value={this.state.distance}
                         onChange={this.handleChange}
-                        style={inputDisplay}
                     />
                 </div>
-                <div style={inputBlock}>
-                    <label htmlFor="cost-input" style={inputLabel}>Cost</label>
+                <div className="input-block">
+                    <label htmlFor="cost-input">Cost</label>
                     <input
+                        className="num-input"
                         id="cost-input"
                         type="number"
                         name="cost"
                         placeholder="00.00"
                         value={this.state.cost}
                         onChange={this.handleChange}
-                        style={inputDisplay}
                     />
                 </div>
-                <div style={inputBlock}>
-                    <label htmlFor="date-input" style={inputLabel}>Date</label>
+                <div className="input-block">
+                    <label htmlFor="date-input">Date</label>
                     <DatePicker
                         id="date-input"
                         name="date"
                         value={this.state.date}
                         onChange={this.handleDateChange}
                         format="d-M-yyyy"
-                        style={inputDisplay}
                     />
                 </div>
                 <input
                     id="submit-button"
                     type="submit"
                     name="submit"
-                    value="Submit"
-                    style={submitButton}
+                    value="Add Record"
                 />
             </form>
         )
     }
 
 
-}
-
-
-const inputDisplay = {
-    padding: '5px',
-}
-
-const inputBlock = {
-    flex: '1',
-    padding: '5px',
-}
-
-const inputLabel = {
-    padding: '5px',
-}
-
-const submitButton = {
-    background: '#555',
-    border: 'none',
-    padding: '5px',
-    color: 'white',
-    flex: '1'
 }
 
 AddRecord.propTypes = {
