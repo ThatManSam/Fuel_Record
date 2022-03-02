@@ -5,7 +5,8 @@
 name=fuel_server
 rcvar=fuel_server_enable
 
-command="node /root/Fuel_Record/fuel-server/index.js" 
+command="/usr/sbin/daemon" 
+command_args="/usr/local/bin/node /root/Fuel_Record/fuel-server/index.js" 
 
 load_rc_config $name
 run_rc_command "$1"
