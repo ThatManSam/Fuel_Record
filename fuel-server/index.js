@@ -1,22 +1,24 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const path = require('path')
 const app = express()
 const port = 5000
 const fs = require('fs')
 
 const recordDirectory = __dirname + '/records.json'
 
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 })
 
 app.get('/express_backend', (req, res) => {
     res.send({ express: 'EXPRESS BACKEND IS CONNECTED TO REACT' })
 })
 
-app.get('/records', (req, res) => {
+app.get('/fuel_server/records', (req, res) => {
     res.sendFile(recordDirectory)
 })
 
