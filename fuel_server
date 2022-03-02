@@ -4,6 +4,7 @@
 
 name=fuel_server
 rcvar=fuel_server_enable
+pidfile="/var/run/${name}.pid"
 
 command="/usr/sbin/daemon" 
 command_args="/usr/local/bin/node /root/Fuel_Record/fuel-server/index.js" 
