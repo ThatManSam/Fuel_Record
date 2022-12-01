@@ -6,12 +6,15 @@ import AddRecord from './components/AddRecord'
 import Records from './components/Records'
 import axios from 'axios'
 
+const serverPrefix = '/fuel_server'
+
 class App extends Component {
   state = {
     records: [],
     displayAddLog: false,
     editMode: false
   }
+
 
 
   componentDidMount() {
@@ -21,7 +24,7 @@ class App extends Component {
 
   callBackendAPI = async () => {
     // Fetch the records from the server
-    const response = await fetch('/records')
+    const response = await fetch(serverPrefix + '/records')
     const body = await response.json()
     // Catching HTTP Errors
     if (response.status !== 200) {
@@ -35,7 +38,7 @@ class App extends Component {
   // Send a post request with the new record
   postRecord = async (rec, isAdding) => {
     await axios
-      .post('/post', { add: isAdding, item: rec })
+      .post(serverPrefix + '/post', { add: isAdding, item: rec })
       .catch(err => console.log(err))
   }
 

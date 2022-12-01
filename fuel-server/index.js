@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const path = require('path')
 const app = express()
 const port = 5000
 const fs = require('fs')
@@ -7,14 +8,18 @@ const fs = require('fs')
 const recordDirectory = __dirname + '/records.json'
 const fuelApp = '/home/joel/Documents/Fuel_Record/fuel-app/build'
 
-app.use(bodyParser.json())
-app.use(express.static(fuelApp))
+// app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/', (req, res) => {
-    res.sendFile(fuelApp + '/index.html')
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 })
 
-app.get('/records', (req, res) => {
+app.get('/express_backend', (req, res) => {
+    res.send({ express: 'EXPRESS BACKEND IS CONNECTED TO REACT' })
+})
+
+app.get('/fuel_server/records', (req, res) => {
     res.sendFile(recordDirectory)
 })
 
